@@ -1,0 +1,32 @@
+:root {
+    --main-blue: rgb(126, 223, 248);
+  }
+
+body {
+    background-color: #f7f7fa;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.button1 {
+    width: 200px;
+    height: 70px;
+    text-decoration: none;
+    color:white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    border: black 2px solid;
+    transition: all 0.2s ease-in-out;
+}
+
+.button1:hover {
+    color:black;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}

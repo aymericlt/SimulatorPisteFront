@@ -1,0 +1,26 @@
+.footer {
+  position: static;
+
+  height: 60px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-align: center;
+  background-color: #ffffff;
+  color:rgb(102, 102, 102);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.names {
+  margin-bottom: 10px;
+}
+
+.names span {
+  margin: 0 15px 0 15px;
+}

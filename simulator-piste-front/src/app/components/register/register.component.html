@@ -1,0 +1,35 @@
+<section class="myPage">
+    <div class="content">
+      <h1>Inscription</h1>
+      <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+      <form>
+        <div class="formGroup">
+          <label for="first-name">Prénom</label>
+          <input type="text" id="first-name" formControlName="first-name" required>
+        </div>
+        <div class="formGroup">
+            <label for="last-name">Nom de famille</label>
+            <input type="text" id="last-name" formControlName="last-name" required>
+        </div>
+        <div class="formGroup">
+            <label for="email">E-Mail</label>
+            <input type="text" id="email" formControlName="email" required>
+        </div>
+
+        <div class="formGroup">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" formControlName="username" required>
+          </div>
+        
+          <div class="formGroup">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" formControlName="password" required>
+          </div>
+      
+        <div class="formButtonGroup">
+          <button type="submit">Se connecter</button>
+        </div>
+      </form>
+      
+    </div>
+  </section>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +10,35 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  showErrorMessage: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+  constructor(
+    private authService: AuthService,
+    private router: Router) {
+        this.loginForm = new FormGroup({
+          username: new FormControl('', Validators.required),
+          password: new FormControl('', Validators.required)
+        });
   }
 
   ngOnInit(): void {
+    
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
-      // Faites votre appel à l'API ici.
+      this.authService.login(this.loginForm.value).subscribe({
+        next: () => {
+          this.router.navigate(['/']).then(() => {
+            window.location.reload();
+          });
+        },
+        error: (error: { messages: string }) => {
+          this.showErrorMessage = true;
+          console.log('Login failed: ', error.messages)
+        }
+      });
     }
   }
 }

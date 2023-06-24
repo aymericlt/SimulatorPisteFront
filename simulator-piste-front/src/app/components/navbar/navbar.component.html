@@ -2,6 +2,16 @@
 <div class="navbar">
     <i class='bx bxs-plane-alt logo' routerLink=""></i>
     <p routerLink="" class="navbarAppName">SIMU PERMIS PISTE</p>
-    <a routerLink="login">Connexion</a>
-    <a routerLink="register">Inscription</a>
+
+    <a *ngIf="!isLoggedIn()" routerLink="login">Connexion</a>
+    <a *ngIf="!isLoggedIn()" routerLink="register">Inscription</a>
+
+    <a *ngIf="isLoggedAsUser()" routerLink="home">Mes inscriptions</a>
+
+    <a *ngIf="isLoggedAsAdmin()" routerLink="">Missions</a>
+    <a *ngIf="isLoggedAsAdmin()" routerLink="">Actions</a>
+    <a *ngIf="isLoggedAsAdmin()" routerLink="">Utilisateurs</a>
+
+    <a *ngIf="isLoggedIn()" routerLink="user/me">Compte : {{ getUsername() }}</a>
+    <a *ngIf="isLoggedIn()" (click)="logout()">Déconnexion</a>
 </div>

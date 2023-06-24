@@ -1,7 +1,13 @@
 <section class="myPage">
-    <div class="content">
+    <div class="content" *ngIf="!isLoggedIn()" > <!-- Non connecté -->
         <h1>Bienvenue sur Simu Permis Piste</h1>
         <p>Maîtrisez les manoeuvres au sol comme un pro grâce à notre simulateur de permis de piste, l'outil incontournable pour perfectionner vos compétences de conduite et décrocher votre certification en toute confiance !</p>
         <a class="button1" routerLink="/login">COMMENCER</a>
+    </div>
+
+    <div class="content" *ngIf="isLoggedIn()" > <!-- Connecté -->
+        <h1>Bienvenue sur Simu Permis Piste <strong>{{ getUsername() }}</strong></h1>
+        <p>Cette application vous permettra de suivre pas à pas votre apprentissage. <br>
+        En vous souhaitant une agréable visite !</p>
     </div>
 </section>

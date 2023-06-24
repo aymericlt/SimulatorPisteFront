@@ -1,0 +1,30 @@
+<section class="myPage">
+    <div class="content">
+        <h1>Liste des utilisateurs</h1>
+
+        <div class="listLine">
+            <h3 style="flex-basis: 15%;">Nom</h3>
+            <h3 style="flex-basis: 15%;">Prénom</h3>
+            <h3 style="flex-basis: 27%;">Adresse email</h3>
+            <h3 style="flex-basis: 10%;">Rôle</h3>
+            <h3 style="flex-basis: 16%;">Pseudo</h3>
+            <h3 style="flex-basis: 8%;">Gérer</h3>
+            <h3 style="flex-basis: 9%;">Supprimer</h3>
+        </div>
+
+        <div class="separator"></div>
+
+        <div *ngFor="let user of allUsers" class="fullList">
+            <div class="listLine">
+                <p style="flex-basis: 15%;">{{ user.surname }}</p>
+                <p style="flex-basis: 15%;">{{ user.forename }}</p>
+                <p style="flex-basis: 27%;">{{ user.email }}</p>
+                <p style="flex-basis: 10%;">{{ user.role }}</p>
+                <p style="flex-basis: 16%;">{{ user.username }}</p>
+                <a style="flex-basis: 8%;" class="listButton manageButton">Gérer</a>
+                <a style="flex-basis: 9%;" class="listButton deleteButton">Supprimer</a>
+            </div>
+            <div class="separator"></div>
+        </div>
+    </div>
+</section>

@@ -19,4 +19,11 @@ export class UserService {
         console.log('response', response);
       }));
   }
+
+  getAllUsers(): Observable<any> {
+    return this.http.get<any>(`${environment.apiServerUrl}/user`)
+      .pipe(tap(response => {
+        console.log('response', response);
+      }));
+  }
 }

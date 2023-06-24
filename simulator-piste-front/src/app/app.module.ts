@@ -14,6 +14,7 @@ import { MyAccountComponent } from './components/my-account/my-account.component
 import { AuthGardServiceService } from './services/auth-gard-service.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
+import { AllUsersComponent } from './components/all-users/all-users.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TokenInterceptor } from './token.interceptor';
     LoginComponent,
     RegisterComponent,
     MyAccountComponent,
+    AllUsersComponent,
   ],
   imports: [
     BrowserModule,

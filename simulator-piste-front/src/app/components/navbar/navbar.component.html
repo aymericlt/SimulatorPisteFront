@@ -10,7 +10,7 @@
 
     <a *ngIf="isLoggedAsAdmin()" routerLink="">Missions</a>
     <a *ngIf="isLoggedAsAdmin()" routerLink="">Actions</a>
-    <a *ngIf="isLoggedAsAdmin()" routerLink="">Utilisateurs</a>
+    <a *ngIf="isLoggedAsAdmin()" routerLink="user">Utilisateurs</a>
 
     <a *ngIf="isLoggedIn()" routerLink="user/me">Compte : {{ getUsername() }}</a>
     <a *ngIf="isLoggedIn()" (click)="logout()">Déconnexion</a>

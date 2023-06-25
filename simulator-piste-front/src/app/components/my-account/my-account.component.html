@@ -6,8 +6,38 @@
         <h3>Mail : {{ userData.email }}</h3>
         <h3>Status : {{ userData.role }}</h3>
         <h3>Nom d'utilisateur : {{ userData.username }}</h3>
-        <div class="separator"></div>
-
-        <h2>Changer de mot de passe : </h2>
+        
+        <div *ngIf="isLoggedAsAdmin()">
+            <div class="separator"></div>
+            <h2>Changer de mot de passe : </h2>
+            <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+                <div class="formGroup">
+                    <label for="oldPassword">Ancien mot de passe</label>
+                    <input type="password" id="oldPassword" formControlName="oldPassword" required>
+                </div>
+    
+                <div class="formGroup">
+                    <label for="newPassword">Nouveau mot de passe</label>
+                    <input type="password" id="newPassword" formControlName="newPassword" required>
+                </div>
+                
+                <div class="formGroup">
+                    <label for="newPassword2">Confirmez nouveau mot de passe</label>
+                    <input type="password" id="newPassword2" formControlName="newPassword2" required>
+                </div>
+    
+                <div *ngIf="showErrorMessage">
+                    <p class="errorMessage">Changement invalide : Veuillez réessayer</p>
+                </div>
+                
+                <div *ngIf="showSuccessMessage">
+                    <p class="successMessage">Changement de mot de passe validé !</p>
+                </div>
+    
+                <br>
+    
+                <button type="submit">Changer</button>
+            </form>
+        </div>
     </div>
 </section>

@@ -1,0 +1,38 @@
+<section class="myPage">
+    <div *ngIf="checkDataEmpty()" class="content">
+        <h1>Vous n'avez aucune inscription disponible !</h1>
+        <p>Vous participez déjà à toutes les missions disponibles.</p>
+
+    </div>
+
+    <div *ngIf="!checkDataEmpty()" class="content">
+        <h1>S'inscrire à une nouvelle mission</h1>
+        
+        <div class="listLine">
+            <h3 style="flex-basis: 10%;">Id</h3>
+            <h3 style="flex-basis: 25%;">Nom de la mission</h3>
+            <h3 style="flex-basis: 40%;">Actions associées & score minimum</h3>
+            <h3 style="flex-basis: 25%;">Inscription</h3>
+        </div>
+
+        <div class="fullList">
+            <div class="separator"></div>
+            <div *ngFor="let mission of allNotInsctibedMissions" class="listLine">
+                <p style="flex-basis: 10%;">{{mission.id}}</p>
+                <p style="flex-basis: 25%;">{{mission.wording}}</p>
+                <div style="flex-basis: 40%;" class="lstActions">
+                    <p *ngFor="let action of mission.actions">
+                        {{ action.wording }} - {{ action.scoreMinimum }}
+                    </p>
+                </div>
+                <div style="flex-basis: 25%;" class="validationBtnDiv">
+                    <p class="validationBtn doneBtn"
+                    (click)="signToMission(mission.id)">
+                        S'inscrire
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

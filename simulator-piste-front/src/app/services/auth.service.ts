@@ -66,6 +66,10 @@ export class AuthService {
     return localStorage.getItem('accessToken') !== null;
   }
 
+  isLoggedInAsAdmin(): boolean {
+    return this.isLoggedIn() && this.getUser().roles.includes('admin');
+  }
+
   getUser(): any {
     return JSON.parse(localStorage.getItem('userData') || '{}');
   }

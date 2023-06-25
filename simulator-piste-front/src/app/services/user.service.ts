@@ -26,4 +26,27 @@ export class UserService {
         console.log('response', response);
       }));
   }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.apiServerUrl}/user/${id}`)
+      .pipe(tap(response => {
+        console.log('response', response);
+      }));
+  }
+
+  updateRole(userUpdateRequest: any): Observable<any> {
+    return this.http.patch<any>(`${environment.apiServerUrl}/user/role`, userUpdateRequest)
+      .pipe(tap(response => {
+        console.log('response', response);
+      }));
+  }
+
+  changePassword(userUpdateRequest: any): Observable<any> {
+    return this.http.patch<any>(`${environment.apiServerUrl}/user`, userUpdateRequest)
+      .pipe(tap(response => {
+        console.log('response', response);
+      }));
+  }
+
+
 }

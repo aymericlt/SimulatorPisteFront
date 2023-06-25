@@ -7,7 +7,11 @@
 
     <div class="content" *ngIf="isLoggedIn()" > <!-- Connecté -->
         <h1>Bienvenue sur Simu Permis Piste <strong>{{ getUsername() }}</strong></h1>
-        <p>Cette application vous permettra de suivre pas à pas votre apprentissage. <br>
-        En vous souhaitant une agréable visite !</p>
+        
+        <p >Cette application vous permettra de suivre pas à pas votre apprentissage. <br>
+            En vous souhaitant une agréable visite !</p>
+            
+        <h2 *ngIf="isLoggedInAsAdmin()">Vous êtes connecté en tant qu'administrateur</h2>
     </div>
+    
 </section>

@@ -1,0 +1,40 @@
+<section class="myPage">
+    <a class="button1" routerLink="/inscription">RETOUR</a>
+    <br>
+    <div *ngIf="isDataLoaded()" class="content">
+        <h1>Action {{ actionData.fkActionWording }}</h1>
+        <p>Commencée le {{ actionData.fkInscriptionDate }}</p>
+        
+        <div class="listLine">
+            <h3 style="flex-basis: 10%;">Id</h3>
+            <h3 style="flex-basis: 40%;">Nom de l'indicateur</h3>
+            <h3 style="flex-basis: 25%;">Score</h3>
+            <h3 style="flex-basis: 25%;">Valider/Invalider</h3>
+        </div>
+
+        <div *ngFor="let indicator of actionData.indicatorDtos" class="fullList">
+            <div class="separator"></div>
+            <div class="listLine">
+                <p style="flex-basis: 10%;"> {{ indicator.id }} </p>
+                <p style="flex-basis: 40%;"> {{ indicator.wording }} </p>
+
+                <p *ngIf="indicatorIsDone(indicator)" style="flex-basis: 25%;"> {{ indicator.valueIfCheck }} </p>
+                <div *ngIf="indicatorIsDone(indicator)" style="flex-basis: 25%;" class="validationBtnDiv">
+                    <p class="validationBtn doneBtn" 
+                    (click)="markIndicatorAsDone(actionData.fkInscriptionId, actionData.fkActionId, indicator.id)">
+                         Invalider
+                    </p>
+                </div>
+
+                <p *ngIf="!indicatorIsDone(indicator)" style="flex-basis: 25%;"> {{ indicator.valueIfUnCheck }} </p>
+                <div *ngIf="!indicatorIsDone(indicator)" style="flex-basis: 25%;" class="validationBtnDiv">
+                    <p class="validationBtn accessBtn"
+                    (click)="markIndicatorAsDone(actionData.fkInscriptionId, actionData.fkActionId, indicator.id)">
+                        Valider
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

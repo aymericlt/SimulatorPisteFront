@@ -1,0 +1,52 @@
+<section class="myPage">
+    <div *ngIf="checkDataEmpty()" class="content">
+        <h1>Vous n'avez aucune inscription en cours !</h1>
+        <p>(Allez dans MesInscriptions => S'inscrire à une mission pour débuter) </p>
+
+    </div>
+
+    <div *ngIf="!checkDataEmpty()" class="content">
+        <h1>Mes inscriptions</h1>
+
+        <div class="missionLine">
+            <h3 style="flex-basis: 5%;">ID</h3>
+            <h3 style="flex-basis: 15%;">Nom de la mission</h3>
+            <h3 style="flex-basis: 80%;">Actions associées</h3>
+        </div>
+
+        <div *ngFor="let mission of myMissions" class="fullMissionList">
+            <div class="separator"></div>
+            <br>
+            <div class="missionLine">
+                <div style="flex-basis: 5%;" class="missionElem">
+                    <div class="actionTitle">{{ mission.id }}</div>
+                </div>
+                <div style="flex-basis: 15%;" class="missionElem">
+                    <div class="actionTitle">{{ mission.wording }}</div>
+                </div>
+                <div style="flex-basis: 80%;" class="missionElem fullActionList">
+                    
+                    <div class="actionElem">
+                        <div class="actionTitle" style="flex-basis: 25%;">Nom de l'action</div>
+                        <div class="actionTitle" style="flex-basis: 25%;">Mon score actuel</div>
+                        <div class="actionTitle" style="flex-basis: 25%;">Score minimal pour valider</div>
+                        <div class="actionTitle" style="flex-basis: 25%;">Validation</div>
+                    </div>
+
+                    <div class="actionElem" *ngFor="let action of mission.inscriptionActions">
+                        <p style="flex-basis: 25%;">{{ action.fkActionWording }}</p>
+                        <p style="flex-basis: 25%;">{{ action.score === null ? 'NaN' : action.score }}</p>
+                        <p style="flex-basis: 25%;">{{ action.fkActionScoreMinimum }}</p>
+                        <div style="flex-basis: 25%;" class="validationBtnDiv">
+                            <p style="flex-basis: 25%;" class="validationBtn" 
+                            [ngClass]="{'accessBtn': !isActionDone(action), 'doneBtn': isActionDone(action)}"
+                            (click)="routeTo(action.fkInscriptionId, action.fkActionId)">
+                                {{ isActionDone(action) ? 'Done' : 'Accéder' }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

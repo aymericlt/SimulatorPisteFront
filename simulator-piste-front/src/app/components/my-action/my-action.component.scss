@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: calc(100vh - 200px);
 }
 
@@ -21,17 +22,6 @@
     width: 100%;
 }
 
-.listLine {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-
-}
-
-h1 {
-    font-size: 2rem;
-}
-
 .separator {
     width: 100%;
     background-color: rgb(233, 233, 233);
@@ -39,43 +29,50 @@ h1 {
     margin-bottom: 3px;
 }
 
-.listButton {
+.listLine {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color:white;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: ease-in-out 0.1s;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 8px;
-    margin-right: 8px;
-    text-align: center;
+    width: 100%;
+    justify-content: space-between;
+
 }
 
-.listButton:hover {
+.validationBtnDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.validationBtn {
+    padding: 8px;
+    border-radius: 6px;
+    color:white;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: ease-in-out 0.1s;
+}
+
+.validationBtn:hover {
     background-color: white;
     transition: ease-in-out 0.1s;
 }
 
-.manageButton {
+.accessBtn {
     border: solid 1px rgb(77, 172, 255);
     background-color: rgb(77, 172, 255);
 }
 
-.manageButton:hover {
+.accessBtn:hover {
     color:rgb(77, 172, 255);
 }
 
-.deleteButton {
-    border: solid 1px rgb(255, 62, 62);
-    background-color: rgb(255, 62, 62);
+.doneBtn {
+    border: solid 1px #ea5656;
+    background-color: #ea5656;
 }
 
-.deleteButton:hover {
-    color:rgb(255, 62, 62);
+.doneBtn:hover {
+    color: #ea5656;
 }
 
 @media (max-width: 900px) {

@@ -15,6 +15,9 @@ import { AuthGardServiceService } from './services/auth-gard-service.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
 import { AllUsersComponent } from './components/all-users/all-users.component';
+import { MyInscriptionsComponent } from './components/my-inscriptions/my-inscriptions.component';
+import { MyActionComponent } from './components/my-action/my-action.component';
+import { AddInscriptionComponent } from './components/add-inscription/add-inscription.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { AllUsersComponent } from './components/all-users/all-users.component';
     RegisterComponent,
     MyAccountComponent,
     AllUsersComponent,
+    MyInscriptionsComponent,
+    MyActionComponent,
+    AddInscriptionComponent,
   ],
   imports: [
     BrowserModule,

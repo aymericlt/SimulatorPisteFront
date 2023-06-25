@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
       return this.authService.isLoggedIn();
     }
 
+    isLoggedInAsAdmin(): boolean {
+      return this.authService.isLoggedInAsAdmin();
+    }
+
     getUsername(): string {
       return this.authService.getUser().username;
     }

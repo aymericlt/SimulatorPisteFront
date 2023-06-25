@@ -32,6 +32,18 @@ export class AllMissionsComponent implements OnInit{
     console.log('deleteMission', missionId);
     this.missionService.deleteMission(missionId).subscribe({
       next: (response: any) => {
+        this.deleteMission2(missionId);
+      },
+      error: (error: any) => {
+        console.log('error', error);
+      }
+    });
+  }
+
+  deleteMission2(missionId: number) {
+    console.log('deleteMission', missionId);
+    this.missionService.deleteMission(missionId).subscribe({
+      next: (response: any) => {
         window.location.reload();
       },
       error: (error: any) => {

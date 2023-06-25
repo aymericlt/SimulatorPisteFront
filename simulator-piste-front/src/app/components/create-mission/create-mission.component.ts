@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MissionService } from 'src/app/services/mission.service';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-mission',
@@ -15,7 +16,8 @@ export class CreateMissionComponent implements OnInit {
 
   createMissionForm: FormGroup;
 
-  constructor(private missionService: MissionService
+  constructor(private missionService: MissionService,
+    private router: Router
   ) {
     this.createMissionForm = new FormGroup({
       wording: new FormControl('', Validators.required),
@@ -50,6 +52,7 @@ export class CreateMissionComponent implements OnInit {
         next: (response: any) => {
           this.showSuccessMessage = true;
           this.showErrorMessage = false;
+          this.router.navigate(['/mission']);
         },
         error: (error: { messages: string }) => {
           this.showErrorMessage = true;

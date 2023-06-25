@@ -41,7 +41,7 @@ export class MissionService {
       }));
   }
 
-  signToMission(missionid: number) : Observable<any> {
+  signToMission(missionid: number): Observable<any> {
     return this.http.patch<any>(`${environment.apiServerUrl}/inscription/${missionid}`, {})
       .pipe(tap(response => {
         console.log('signToMission response', response);
@@ -118,22 +118,10 @@ export class MissionService {
       }));
   }
 
-  // @PostMapping("/add")
-  //   @PreAuthorize("hasAuthority('admin')")
-  //   public ResponseEntity<?> createMission(@RequestBody MissionDto missionDto, @RequestParam("actionList") List<Integer> actionIds ){
-  //       try{
-  //           missionService.createMission(missionDto, actionIds);
-  //           return ResponseEntity.ok().build();
-  //       }
-  //       catch (Exception e){
-  //           return ResponseEntity.badRequest().body(e.getMessage());
-  //       }
-  //   }
-
-  createMission(mission: any, actionIds: number[]): Observable<any> {
+  createMission(mission: any, actionIds: number[]) {
     let params = new HttpParams();
     actionIds.forEach(id => params = params.append('actionList', id.toString()));
-
+    console.log('params', params);
     return this.http.post<any>(`${environment.apiServerUrl}/mission/add`, mission, { params: params })
       .pipe(tap(response => {
         console.log('createMission response', response);

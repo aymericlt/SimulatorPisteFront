@@ -1,0 +1,71 @@
+<section class="myPage">
+    <a class="button1" routerLink="/action">RETOUR</a>
+    <br>
+
+    <div *ngIf="isDataLoaded()" class="content">
+        <h1>Modifier l'action {{ actionData.wording }}</h1>
+
+        <div *ngIf="!checkDataEmpty()" class="listLine">
+            <h3 style="flex-basis: 10%;">ID</h3>
+            <h3 style="flex-basis: 26%;">Indicateur</h3>
+            <h3 style="flex-basis: 26%;">Valeur si effectuée</h3>
+            <h3 style="flex-basis: 26%;">Valeur sinon</h3>
+            <h3 style="flex-basis: 10%;">Supprimer indicateur</h3>
+        </div>
+
+        <div *ngFor="let indicateur of actionData.indicators" class="fullList">
+            <div class="separator"></div>
+            <div class="listLine">
+                <p style="flex-basis: 10%;">{{ indicateur.id }}</p>
+                <p style="flex-basis: 30%;">{{ indicateur.wording }}</p>
+                <p style="flex-basis: 26%;">{{ indicateur.valueIfCheck }}</p>
+                <p style="flex-basis: 26%;">{{ indicateur.valueIfUnCheck }}</p>
+                <p style="flex-basis: 10%;" class="listButton deleteButton"
+                (click)="deleteIndicator(indicateur.id)">
+                    Supprimer
+                </p>
+            </div>
+        </div>
+        <h3 *ngIf="checkDataEmpty()">  Il n'existe aucun indicateur pour cette mission</h3>
+    </div>
+
+    <br>
+
+    <div *ngIf="isDataLoaded()" class="content">
+        <h1>Ajouter un nouvel indicateur à l'action</h1>
+        
+        <form [formGroup]="addIndicatorForm" (ngSubmit)="onSubmit()">
+
+            <div class="formGroup">
+                <label for="wording">Nom de l'indicateur</label>
+                <input type="text" id="wording" formControlName="wording" required>
+            </div>
+
+            <br>
+
+            <div class="formGroup">
+                <label for="valueIfCheck">Valeur si effectué</label>
+                <input type="text" id="valueIfCheck" formControlName="valueIfCheck" required>
+            </div>
+
+            <br>
+            
+            <div class="formGroup">
+                <label for="valueIfUnCheck">Valeur sinon</label>
+                <input type="text" id="valueIfUnCheck" formControlName="valueIfUnCheck" required>
+            </div>
+
+            <div *ngIf="showErrorMessage">
+                <p class="errorMessage">Ajout d'indicateur invalide : Veuillez réessayer</p>
+            </div>
+            
+            <div *ngIf="showSuccessMessage">
+                <p class="successMessage">Ajout d'indicateur validé !</p>
+            </div>
+
+            <br>
+
+            <button type="submit">Ajouter</button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,85 @@
+.myPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+}
+
+.content {
+    width: 85%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fullList {
+    width: 100%;
+}
+
+.listLine {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.separator {
+    width: 100%;
+    background-color: rgb(233, 233, 233);
+    height: 1px;
+    margin-bottom: 3px;
+}
+
+.listButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
+    text-align: center;
+}
+
+.listButton:hover {
+    background-color: white;
+    transition: ease-in-out 0.1s;
+}
+
+.manageButton {
+    border: solid 1px rgb(77, 172, 255);
+    background-color: rgb(77, 172, 255);
+}
+
+.manageButton:hover {
+    color:rgb(77, 172, 255);
+}
+
+.deleteButton {
+    border: solid 1px rgb(255, 62, 62);
+    background-color: rgb(255, 62, 62);
+}
+
+.deleteButton:hover {
+    color:rgb(255, 62, 62);
+}
+
+@media (max-width: 900px) {
+    .content {
+        width: 100%;
+    }
+}

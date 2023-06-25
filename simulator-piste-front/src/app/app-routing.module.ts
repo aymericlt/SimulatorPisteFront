@@ -9,7 +9,12 @@ import { AllUsersComponent } from './components/all-users/all-users.component';
 import { MyInscriptionsComponent } from './components/my-inscriptions/my-inscriptions.component';
 import { MyActionComponent } from './components/my-action/my-action.component';
 import { AddInscriptionComponent } from './components/add-inscription/add-inscription.component';
-
+import { AllActionsComponent } from './components/all-actions/all-actions.component';
+import { ModifyActionComponent } from './components/modify-action/modify-action.component';
+import { CreateActionComponent } from './components/create-action/create-action.component';
+import { AllMissionsComponent } from './components/all-missions/all-missions.component';
+import { ModifyMissionComponent } from './components/modify-mission/modify-mission.component';
+import { CreateMissionComponent } from './components/create-mission/create-mission.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +25,13 @@ const routes: Routes = [
   { path: 'inscription', component: MyInscriptionsComponent, canActivate: [AuthGardServiceService]},
   { path: 'inscription/:inscriptionid/action/:actionid', component: MyActionComponent, canActivate: [AuthGardServiceService]},
   { path: 'inscription/add', component: AddInscriptionComponent, canActivate: [AuthGardServiceService]},
+  { path: 'action', component: AllActionsComponent, canActivate: [AuthGardServiceService] },
+  { path: 'action/:actionid', component: ModifyActionComponent, canActivate: [AuthGardServiceService] },
+  { path: 'createaction', component: CreateActionComponent, canActivate: [AuthGardServiceService] },
+  { path: 'mission', component: AllMissionsComponent, canActivate: [AuthGardServiceService] },
+  { path: 'mission/:missionid', component: ModifyMissionComponent, canActivate: [AuthGardServiceService] },
+  { path: 'createmission', component: CreateMissionComponent, canActivate: [AuthGardServiceService] },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

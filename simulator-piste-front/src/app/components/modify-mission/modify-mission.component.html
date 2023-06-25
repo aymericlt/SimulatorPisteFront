@@ -1,0 +1,33 @@
+<section class="myPage">
+    <a class="button1" routerLink="/mission">RETOUR</a>
+
+    <br>
+
+    <div *ngIf="isDataLoaded()" class="content">
+        <h1>Modifier l'action {{ missionData.wording }}</h1>
+
+        <div class="listLine">
+            <h3 style="flex-basis: 10%;">ID</h3>
+            <h3 style="flex-basis: 20%;">Action</h3>
+            <h3 style="flex-basis: 16%;">Score minimum</h3>
+            <h3 style="flex-basis: 40%;">Action à effectuer au préalable</h3>
+            <h3 style="flex-basis: 12%;">Supprimer l'action</h3>
+        </div>
+
+        <div *ngFor="let action of missionData.actions" class="fullList">
+            <div class="separator"></div>
+            <div class="listLine">
+                <p style="flex-basis: 10%;">{{ action.id }}</p>
+                <p style="flex-basis: 20%;">{{ action.wording }}</p>
+                <p style="flex-basis: 16%;">{{ action.scoreMinimum }}</p>
+                <p style="flex-basis: 40%;">
+                    {{ action.previousActionWording === null ? " " : action.previousActionWording }}
+                </p>
+                <p style="flex-basis: 12%;" class="listButton deleteButton"
+                (click)="deleteActionFromMission(action.id)">
+                    Supprimer
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

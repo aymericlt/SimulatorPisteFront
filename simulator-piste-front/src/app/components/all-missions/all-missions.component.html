@@ -1,0 +1,30 @@
+<section class="myPage">
+    <div class="content">
+        <h1>Liste des missions</h1>
+
+        <div class="listLine">
+            <h3 style="flex-basis: 10%;">ID</h3>
+            <h3 style="flex-basis: 20%;">Nom de la mission</h3>
+            <h3 style="flex-basis: 50%;">Actions associées - Score minimum</h3>
+            <h3 style="flex-basis: 10%;">Modifier</h3>
+            <h3 style="flex-basis: 10%;">Supprimer</h3>
+        </div>
+
+        <div *ngFor="let mission of allMissions" class="listLine">
+            <p style="flex-basis: 10%;">{{ mission.id }}</p>
+            <p style="flex-basis: 20%;">{{ mission.wording }}</p>
+            <div style="flex-basis: 50%;">
+                <div *ngFor="let action of mission.actions" class="actionInMission">
+                    <p> {{ action.wording }} - {{ action.scoreMinimum }} </p>
+                </div>
+            </div>
+            <p style="flex-basis: 10%;" class="listButton manageButton"
+            (click)="modifyMission(mission.id)">   Modifier
+            </p>
+            <p style="flex-basis: 10%;" class="listButton deleteButton"
+            (click)="deleteMission(mission.id)">
+                Supprimer
+            </p>
+        </div>
+    </div>
+</section>

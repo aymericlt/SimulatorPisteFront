@@ -1,0 +1,32 @@
+<section class="myPage">
+    <div class="content">
+        <h1>Liste des actions</h1>
+
+        <div class="listLine">
+            <h3 style="flex-basis: 10%;">ID</h3>
+            <h3 style="flex-basis: 24%;">Nom de l'action</h3>
+            <h3 style="flex-basis: 18%;">Score minimum</h3>
+            <h3 style="flex-basis: 24%;">Action associée (si parent)</h3>
+            <h3 style="flex-basis: 12%;">Modifier</h3>
+            <h3 style="flex-basis: 12%;">Supprimer</h3>
+        </div>
+
+        <div *ngFor="let action of allActions" class="fullList">
+            <div class="separator"></div>
+            <div class="listLine">
+                <p style="flex-basis: 10%;">{{ action.id }}</p>
+                <p style="flex-basis: 24%;">{{ action.wording }}</p>
+                <p style="flex-basis: 18%;">{{ action.scoreMinimum }}</p>
+                <p style="flex-basis: 24%;">{{ action.previousActionWording }}</p>
+                <p style="flex-basis: 12%;" class="listButton manageButton"
+                (click)="modifyAction(action.id)">
+                    Modifier
+                </p>
+                <p style="flex-basis: 12%;" class="listButton deleteButton"
+                (click)="deleteAction(action.id)">
+                    Supprimer
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

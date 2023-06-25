@@ -28,7 +28,7 @@ export class MyActionComponent implements OnInit {
       console.log('actionId: ', this.actionId);
     });
 
-    this.missionService.getMyMissionIndicators(this.inscriptionId, this.actionId)
+    this.missionService.getMyActionIndicators(this.inscriptionId, this.actionId)
       .subscribe({
         next: (response: any) => {
           this.actionData = response;

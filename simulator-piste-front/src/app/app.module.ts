@@ -18,6 +18,12 @@ import { AllUsersComponent } from './components/all-users/all-users.component';
 import { MyInscriptionsComponent } from './components/my-inscriptions/my-inscriptions.component';
 import { MyActionComponent } from './components/my-action/my-action.component';
 import { AddInscriptionComponent } from './components/add-inscription/add-inscription.component';
+import { AllActionsComponent } from './components/all-actions/all-actions.component';
+import { ModifyActionComponent } from './components/modify-action/modify-action.component';
+import { CreateActionComponent } from './components/create-action/create-action.component';
+import { AllMissionsComponent } from './components/all-missions/all-missions.component';
+import { ModifyMissionComponent } from './components/modify-mission/modify-mission.component';
+import { CreateMissionComponent } from './components/create-mission/create-mission.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,12 @@ import { AddInscriptionComponent } from './components/add-inscription/add-inscri
     MyInscriptionsComponent,
     MyActionComponent,
     AddInscriptionComponent,
+    AllActionsComponent,
+    ModifyActionComponent,
+    CreateActionComponent,
+    AllMissionsComponent,
+    ModifyMissionComponent,
+    CreateMissionComponent,
   ],
   imports: [
     BrowserModule,

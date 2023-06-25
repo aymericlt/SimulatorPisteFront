@@ -28,15 +28,20 @@ export class CreateActionComponent implements OnInit {
 
   onSubmit(): void {
     if (this.createActionForm.valid || this.createActionForm.value.previousActionId == '') {
-      var previousActionIdVal = this.createActionForm.value.previousActionId;
-      if(previousActionIdVal == '') previousActionIdVal = null;
-      else previousActionIdVal = parseInt(previousActionIdVal, 10);
 
-      
-      const createActionRequest = {
-        wording: this.createActionForm.value.wording,
-        scoreMinimum: parseInt(this.createActionForm.value.scoreMinimum, 10),
-        previousActionId: previousActionIdVal
+      var createActionRequest = {};
+
+      if (this.createActionForm.value.previousActionId == '') {
+        createActionRequest = {
+          wording: this.createActionForm.value.wording,
+          scoreMinimum: parseInt(this.createActionForm.value.scoreMinimum, 10)
+        }
+      } else {
+        createActionRequest = {
+          wording: this.createActionForm.value.wording,
+          scoreMinimum: parseInt(this.createActionForm.value.scoreMinimum, 10),
+          previousActionId: parseInt(this.createActionForm.value.previousActionId, 10),
+        }
       }
 
       console.log('Create action form', createActionRequest);
